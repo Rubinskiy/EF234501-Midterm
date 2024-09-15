@@ -1,0 +1,58 @@
+:root {
+    --primary-color: #14161a;
+    --secondary-color: #dbdbdb;
+    --tertiary-color: #111212;
+    --button-color: #3273dc;
+    --button-hover-color: #2463c7;;
+    --button-text-color: #dbdbdb;
+    --link-hover-color: #bbbbbb;
+    --accordion-color: #1d1d1e;
+    --border-color: #2e333a;
+}
+html, body {
+    font-family: "Bricolage Grotesque", Verdana, Geneva, Tahoma, sans-serif;
+}
+.accordion {
+    background-color: var(--accordion-color);
+    color: #d8d8d8;
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-family: "Bricolage Grotesque", serif;
+    font-size: 18px;
+    border-radius: 25px;
+    transition: 0.3s;
+    border: 1px solid var(--border-color);
+}
+.active, .accordion:hover {
+    background-color: var(--tertiary-color);
+    border-radius: 25px 25px 0 0;
+    font-size: 20px;
+}
+.accordion:after {
+    content: '\002B';
+    color: #d8d8d8;
+    font-weight: bold;
+    float: right;
+    margin-left: 5px;
+}
+.panel {
+    padding: 0 24px;
+    background-color: var(--tertiary-color);
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+    color: #d8d8d8;
+    border-radius: 0 0 25px 25px;
+}
+.navbar {
+    border: solid 1px var(--border-color);
+}
+.footer {
+    padding: 2rem;
+    background-color: var(--primary-color);
+    border: solid 1px var(--border-color);
+}
