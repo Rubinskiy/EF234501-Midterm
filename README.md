@@ -20,3 +20,9 @@ This project aims to recreate a blog site with a specific niche. This app is cal
 ## Register
 ![image](https://github.com/user-attachments/assets/4c5e37ae-2559-4b28-8a94-b47f10b169c8)
 
+# Components
+| Component | Description                         |
+|-----------|-------------------------------------|
+| Navbar    | Menu bar in most pages              |
+| Footer    | Footer component in most post pages |
+
