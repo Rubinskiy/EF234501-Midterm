@@ -4,3 +4,19 @@
   
 <p align="center">Source code to a Laravel app that was created for <a href="https://www.its.ac.id/informatika/academic/study-program/bachelor-degree/curriculum-handbook-and-syllabus-for-undergraduate-study-program/">EF234501</a>.</p>
 <p align="center">All solutions were created by <a href="https://github.com/Rubinskiy">Robin</a></p>
+
+<hr>
+
+# Overview
+This project aims to recreate a blog site with a specific niche. This app is called SheepTalk.
+
+# Pages
+## Home
+![IS0RhmjPGO](https://github.com/user-attachments/assets/8070b8df-3df8-424d-aafd-8f1ab3c7ed41)
+
+## Login
+![image](https://github.com/user-attachments/assets/290d0b05-5723-4a41-8e11-eaafe49d3d50)
+
+## Register
+![image](https://github.com/user-attachments/assets/4c5e37ae-2559-4b28-8a94-b47f10b169c8)
+
