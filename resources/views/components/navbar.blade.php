@@ -18,7 +18,7 @@
                     Forum
                 </a>
 
-                <a href="#" class="navbar-item">
+                <a href="{{ route('about') }}" class="navbar-item">
                     About
                 </a>
             </div>

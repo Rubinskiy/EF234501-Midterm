@@ -26,6 +26,10 @@ Route::post('/api/register', [AuthController::class, 'registerApi'])->name('regi
 Route::get('/login', [AuthController::class, 'login'])->name('login');
 Route::post('/api/login', [AuthController::class, 'loginApi'])->name('loginApi');
 
+Route::get('/about', function () {
+    return view('about');
+})->name('about');
+
 Route::get('/error', function () {
     return view('error');
 })->name('error');
