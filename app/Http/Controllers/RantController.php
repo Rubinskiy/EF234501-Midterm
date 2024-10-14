@@ -45,6 +45,21 @@ class RantController extends Controller
         }
     }
 
+    public function updateApi(Request $request) {
+        $request->validate([
+            'post_id' => 'required',
+            'content' => 'required',
+        ]);
+
+        $post = Post::find($request->post_id);
+        $post->content = $request->content;
+        if ($post->save()) {
+            return redirect(route('rants'))->with('info', 'Post updated');
+        } else {
+             return redirect(route('error'))->with('error', 'Error updating post: ' . $post->getError());
+        }
+    }
+
     public function rants() {
         //$posts = Post::where('user_id', Auth::id())->get();
         // get all rants from all users, limit 10, from most recent

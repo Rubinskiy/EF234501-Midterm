@@ -16,7 +16,7 @@
 
         <a href="{{ route('rants') }}" class="button is-primary is-rounded" style="margin-bottom: 20px;"><i class="bi bi-arrow-left"></i> Go back</a>
 
-        <h1 class="title is-1 has-text-centered" style="font-size:36px;">🐑 View all rants by {{ $user->name }}
+        <h1 class="title is-1 has-text-centered" style="font-size:36px;">🐑 View all rants by {{ $user->name }}</h1>
         <p class="subtitle is-6 has-text-centered">People can be awful</p>
         <div class="has-text-centered">
             <a href="{{ route('create') }}" class="button is-primary is-rounded" style="margin-bottom: 20px;">You can be too</a>
@@ -35,12 +35,15 @@
                             <div class="column is-one-third is-fullwidth">
                                 <div class="box" style="border: solid 1px #666666; border-radius: 4px; margin-bottom: 20px; width: 100%; padding: 36px 36px;">
                                     <p class="title is-4">“{{ $post->content }}”</p>
-                                    <p class="subtitle is-6 mt-4">By <a href="{{ route('userRants', ['user_id' => $post->user_id]) }}">{{ $post->user_name }}</a> on {{ $post->created_at->format('F j, Y g:i A') }}</p>
+                                    <p class="subtitle is-6 mt-4">By <a href="{{ route('userRants', ['user_id' => $post->user_id]) }}">{{ $user->name }}</a> on {{ $post->created_at->format('F j, Y g:i A') }}</p>
                                     @if(Auth::id() == $post->user_id)
-                                        <form action="{{ route('deleteApi', ['post_id' => $post->id]) }}" method="POST">
-                                            @csrf
-                                            <button type="submit" class="button is-small is-danger" onclick="return confirm('Are you sure?')">Delete</button>
-                                        </form>
+                                        <div class="buttons has-text-right">
+                                            <form action="{{ route('deleteApi', ['post_id' => $post->id]) }}" method="POST">
+                                                @csrf
+                                                <button type="submit" class="button is-small is-danger" onclick="return confirm('Are you sure?')">Delete</button>
+                                            </form>
+                                            <button class="button is-small is-info" onclick="update_rant('{{ $post->id }}', '{{ $post->content }}')">Update</button>
+                                        </div>
                                     @endif
                                 </div>
                             </div>
@@ -54,5 +57,10 @@
         
     </div>
     <script src="{{ asset('js/app.js') }}"></script>
+    <script>
+        function update_rant(post_id, content) {
+            window.location.href = "{{ route('updateApi') }}" + "?post_id=" + post_id + "&content=" + encodeURIComponent(prompt('Update rant', content));
+        }
+    </script>
 </body>
 </html>

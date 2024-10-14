@@ -46,10 +46,13 @@
                                     <p class="title is-4">“{{ $post->content }}”</p>
                                     <p class="subtitle is-6 mt-4">By <a href="{{ route('userRants', ['user_id' => $post->user_id]) }}">{{ $post->user_name }}</a> on {{ $post->created_at->format('F j, Y g:i A') }}</p>
                                     @if(Auth::id() == $post->user_id)
-                                        <form action="{{ route('deleteApi', ['post_id' => $post->id]) }}" method="POST">
-                                            @csrf
-                                            <button type="submit" class="button is-small is-danger" onclick="return confirm('Are you sure?')">Delete</button>
-                                        </form>
+                                        <div class="buttons has-text-right">
+                                            <form action="{{ route('deleteApi', ['post_id' => $post->id]) }}" method="POST">
+                                                @csrf
+                                                <button type="submit" class="button is-small is-danger" onclick="return confirm('Are you sure?')">Delete</button>
+                                            </form>
+                                            <button class="button is-small is-info" onclick="update_rant('{{ $post->id }}', '{{ $post->content }}')">Update</button>
+                                        </div>
                                     @endif
                                 </div>
                             </div>
@@ -63,5 +66,10 @@
         
     </div>
     <script src="{{ asset('js/app.js') }}"></script>
+    <script>
+        function update_rant(post_id, content) {
+            window.location.href = "{{ route('updateApi') }}" + "?post_id=" + post_id + "&content=" + encodeURIComponent(prompt('Update rant', content));
+        }
+    </script>
 </body>
 </html>
