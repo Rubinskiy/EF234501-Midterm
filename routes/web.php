@@ -1,7 +1,10 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\RantController;
 use App\Http\Controllers\AuthController;
+use Illuminate\Support\Facades\Auth;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -27,13 +30,14 @@ Route::get('/error', function () {
     return view('error');
 })->name('error');
 
-Route::get('/logout', function () {
-    session_start();
-    session_destroy();
-    return redirect()->route('login');
-})->name('logout');
-
 Route::middleware(['auth'])->group(function () {
-    Route::get('/create', 'RantController@create')->name('create');
-    Route::get('/rants', 'RantController@rants')->name('rants');
+    Route::get('/create', [RantController::class, 'create'])->name('create');
+    Route::get('/rants', [RantController::class, 'rants'])->name('rants');
+    Route::get('/rants/{user_id}', [RantController::class, 'userRants'])->name('userRants');
+
+
+    Route::get('/logout', function () {
+        Auth::logout();
+        return redirect()->route('login');
+    })->name('logout');
 });

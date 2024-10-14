@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SheepTalk :: Rant about anything</title>
+    <title>Make a rant</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.min.css">
     <link rel="dns-prefetch" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,800&display=swap" rel="stylesheet">
@@ -16,7 +16,7 @@
         <section class="hero is-medium">
             <div class="hero-body">
                 <div class="container">
-                    <h1 class="title is-1 has-text-centered" style="font-size:84px;">🐑 SheepTalk Forum</h1>
+                    <h1 class="title is-1 has-text-centered" style="font-size:84px;">🐑 Make a rant</h1>
                     <p class="subtitle is-3 has-text-centered">Rant about anything</p>
                     <div class="buttons is-centered">
                         <a href="#" class="button is-primary">

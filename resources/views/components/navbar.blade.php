@@ -1,6 +1,3 @@
-<?php
-    session_start();
-?>
 <div style="padding-bottom: 25px;">
     <nav class="navbar" role="navigation" aria-label="main navigation">
         <div class="navbar-brand">
@@ -39,36 +36,34 @@
             </div>
 
             <div class="navbar-end">
-                <?php
-                    if (isset($_SESSION["logged_in"]) && $_SESSION["logged_in"]) {
-                        echo '<div class="navbar-item has-dropdown is-hoverable">
-                            <a href="#" class="navbar-link">
-                                <i class="bi bi-person-circle" style="font-size: 18px;"></i>' . $_SESSION["name"] . '
-                            </a>
+                @if (Auth::check())
+                    <div class="navbar-item has-dropdown is-hoverable">
+                        <a href="#" class="navbar-link">
+                            <i class="bi bi-person-circle" style="font-size: 18px;"></i>{{ Auth::user()->name }}
+                        </a>
 
-                            <div class="navbar-dropdown is-right">
-                                <a href="/rants/' . $_SESSION["user_id"] . '" class="navbar-item">
-                                    My Rants
-                                </a>
-                                <hr class="navbar-divider">
-                                <a href="/logout" class="navbar-item">
-                                    Log out
-                                </a>
-                            </div>
-                        </div>';
-                    } else {
-                        echo '<div class="navbar-item">
-                            <div class="buttons">
-                                <a href="/register" class="button is-primary">
-                                    <strong>Sign up</strong>
-                                </a>
-                                <a href="/login" class="button is-light">
-                                    Log in
-                                </a>
-                            </div>
-                        </div>';
-                    }
-                ?>
+                        <div class="navbar-dropdown is-right">
+                            <a href="{{ route('userRants', ['user_id' => Auth::user()->id]) }}" class="navbar-item">
+                                My Rants
+                            </a>
+                            <hr class="navbar-divider">
+                            <a href="{{ route('logout') }}" class="navbar-item">
+                                Log out
+                            </a>
+                        </div>
+                    </div>
+                @else
+                    <div class="navbar-item">
+                        <div class="buttons">
+                            <a href="{{ route('register') }}" class="button is-primary">
+                                <strong>Sign up</strong>
+                            </a>
+                            <a href="{{ route('login') }}" class="button is-light">
+                                Log in
+                            </a>
+                        </div>
+                    </div>
+                @endif
             </div>
         </div>
     </nav>
