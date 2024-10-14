@@ -35,6 +35,11 @@
             <div class="hero-body">
                 <div class="container is-fullwidth">
                     <div class="columns is-multiline is-centered">
+                        @if(count($posts) == 0)
+                            <div class="column is-fullwidth my-6">
+                                <p class="subtitle is-4 has-text-centered has-text-grey">No posts found</p>
+                            </div>
+                        @endif
                         @foreach($posts as $post)
                             <div class="column is-one-third is-fullwidth">
                                 <div class="box" style="border: solid 1px #666666; border-radius: 4px; margin-bottom: 20px; width: 100%; padding: 36px 36px;">

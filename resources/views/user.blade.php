@@ -14,6 +14,8 @@
     <div class="container">
         <x-navbar></x-navbar>
 
+        <a href="{{ route('rants') }}" class="button is-primary is-rounded" style="margin-bottom: 20px;"><i class="bi bi-arrow-left"></i> Go back</a>
+
         <h1 class="title is-1 has-text-centered" style="font-size:36px;">🐑 View all rants by {{ $user->name }}
         <p class="subtitle is-6 has-text-centered">People can be awful</p>
         <div class="has-text-centered">
@@ -24,6 +26,11 @@
             <div class="hero-body">
                 <div class="container is-fullwidth">
                     <div class="columns is-multiline is-centered">
+                        @if(count($posts) == 0)
+                            <div class="column is-fullwidth my-6">
+                                <p class="subtitle is-4 has-text-centered has-text-grey">No posts found</p>
+                            </div>
+                        @endif
                         @foreach($posts as $post)
                             <div class="column is-one-third is-fullwidth">
                                 <div class="box" style="border: solid 1px #666666; border-radius: 4px; margin-bottom: 20px; width: 100%; padding: 36px 36px;">
