@@ -58,4 +58,10 @@ class RantController extends Controller
         
         return view('rants', ['posts' => $posts]);
     }
+
+    public function userRants($user_id) {
+        $posts = Post::where('user_id', $user_id)->get();
+        $user = User::find($user_id);
+        return view('user', ['posts' => $posts], ['user' => $user]);
+    }
 }

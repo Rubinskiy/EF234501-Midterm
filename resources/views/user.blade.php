@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>View all rants</title>
+    <title>View all rants by {{ $user->name }}</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.min.css">
     <link rel="dns-prefetch" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,800&display=swap" rel="stylesheet">
@@ -14,22 +14,11 @@
     <div class="container">
         <x-navbar></x-navbar>
 
-        <h1 class="title is-1 has-text-centered" style="font-size:36px;">🐑 View all rants</h1>
+        <h1 class="title is-1 has-text-centered" style="font-size:36px;">🐑 View all rants by {{ $user->name }}
         <p class="subtitle is-6 has-text-centered">People can be awful</p>
         <div class="has-text-centered">
             <a href="{{ route('create') }}" class="button is-primary is-rounded" style="margin-bottom: 20px;">You can be too</a>
         </div>
-
-        @if (session()->has("success"))
-            <div class="notification is-success">
-                {{ session()->get("success") }}
-            </div>
-        @endif
-        @if (session()->has("info"))
-            <div class="notification is-info">
-                {{ session()->get("info") }}
-            </div>
-        @endif
         
         <section class="hero is-small">
             <div class="hero-body">
