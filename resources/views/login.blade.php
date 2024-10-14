@@ -1,3 +1,9 @@
+<?php
+    if (isset($_SESSION["logged_in"]) && $_SESSION["logged_in"]) {
+        header("Location: /");
+        exit();
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,12 +22,22 @@
             <div class="hero-body">
                 <div class="columns is-centered">
                     <div class="column is-one-third">
+                        @if (session()->has("success"))
+                            <div class="notification is-success">
+                                {{ session()->get("success") }}
+                            </div>
+                        @endif
+                        @if (session()->has("error"))
+                            <div class="notification is-danger">
+                                {{ session()->get("error") }}
+                            </div>
+                        @endif
                         <div class="card">
                             <div class="card-content">
                                 <div class="content">
                                     <h2 class="title is-2 has-text-centered">🐑 Login</h2>
                                     <p class="subtitle is-5 has-text-centered">Login to continue</p>
-                                    <form action="#" method="POST">
+                                    <form action="{{ route('loginApi') }}" method="POST">
                                         @csrf
                                         <div class="field">
                                             <label for="email" class="label">Email</label>

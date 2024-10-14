@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('posts', function (Blueprint $table) {
-            $table->id()->unique();
+            $table->id()->unique(); 
             $table->text('content');
             $table->timestamps();
             $table->foreignId('user_id')->constrained()->onDelete('cascade');

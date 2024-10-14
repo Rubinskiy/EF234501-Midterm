@@ -1,3 +1,9 @@
+<?php
+    if (isset($_SESSION["logged_in"]) && $_SESSION["logged_in"]) {
+        header("Location: /");
+        exit();
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -21,7 +27,7 @@
                                 <div class="content">
                                     <h2 class="title is-2 has-text-centered">🐑 Register</h2>
                                     <p class="subtitle is-5 has-text-centered">Register a new account</p>
-                                    <form action="#" method="POST">
+                                    <form action="{{ route('registerApi') }}" method="POST">
                                         @csrf
                                         <div class="field">
                                             <label for="name" class="label">Name</label>
@@ -39,12 +45,6 @@
                                             <label for="password" class="label">Password</label>
                                             <div class="control">
                                                 <input type="password" name="password" id="password" class="input" placeholder="********" required>
-                                            </div>
-                                        </div>
-                                        <div class="field">
-                                            <label for="password" class="label">Retype Password</label>
-                                            <div class="control">
-                                                <input type="password" name="retype_password" id="retype_password" class="input" placeholder="********" required>
                                             </div>
                                         </div>
                                         <div class="field">
