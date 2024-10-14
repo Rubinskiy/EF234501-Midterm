@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SheepTalk :: Rant about anything</title>
+    <title>View all rants</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.min.css">
     <link rel="dns-prefetch" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,800&display=swap" rel="stylesheet">
@@ -19,13 +19,13 @@
                     <h1 class="title is-1 has-text-centered" style="font-size:84px;">🐑 SheepTalk Forum</h1>
                     <p class="subtitle is-3 has-text-centered">Rant about anything</p>
                     <div class="buttons is-centered">
-                        <a href="{{ url('create') }}" class="button is-primary">
+                        <a href="#" class="button is-primary">
                             <span class="icon">
                                 <i class="bi bi-journal-plus"></i>
                             </span>
                             <span>Make a Rant</span>
                         </a>
-                        <a href="{{ url('rants') }}" class="button is-info">
+                        <a href="#" class="button is-info">
                             <span class="icon">
                                 <i class="bi bi-journals"></i>
                             </span>

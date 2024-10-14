@@ -15,12 +15,23 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('home');
 
 Route::get('/login', function () {
     return view('login');
-});
+})->name('login');
 
 Route::get('/register', function () {
     return view('register');
+})->name('register');
+
+Route::middleware(['auth'])->group(function () {
+    Route::get('/create', 'RantController@create')->name('create');
+
+    Route::get('/rants', 'RantController@rants')->name('rants');
+
+    Route::get('/logout', function () {
+        auth()->logout();
+        return redirect()->route('login');
+    })->name('logout');
 });
