@@ -14,25 +14,13 @@
 
         <div id="navbar" class="navbar-menu">
             <div class="navbar-start">
-                <a href="#" class="navbar-item">
+                <a href="{{ route('rants') }}" class="navbar-item">
                     Forum
                 </a>
 
-                <div class="navbar-item has-dropdown is-hoverable">
-                    <a href="#" class="navbar-link">
-                        More
-                    </a>
-
-                    <div class="navbar-dropdown">
-                        <a href="#" class="navbar-item">
-                            About
-                        </a>
-                        <hr class="navbar-divider">
-                        <a href="#" class="navbar-item">
-                            Report an issue
-                        </a>
-                    </div>
-                </div>
+                <a href="#" class="navbar-item">
+                    About
+                </a>
             </div>
 
             <div class="navbar-end">
@@ -45,6 +33,9 @@
                         <div class="navbar-dropdown is-right">
                             <a href="{{ route('userRants', ['user_id' => Auth::user()->id]) }}" class="navbar-item">
                                 My Rants
+                            </a>
+                            <a href="{{ route('create') }}" class="navbar-item">
+                                Make a rant
                             </a>
                             <hr class="navbar-divider">
                             <a href="{{ route('logout') }}" class="navbar-item">

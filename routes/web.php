@@ -35,6 +35,8 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/rants', [RantController::class, 'rants'])->name('rants');
     Route::get('/rants/{user_id}', [RantController::class, 'userRants'])->name('userRants');
 
+    Route::post('/api/create_rant', [RantController::class, 'createApi'])->name('createApi');
+    Route::post('/api/delete_rant', [RantController::class, 'deleteApi'])->name('deleteApi');
 
     Route::get('/logout', function () {
         Auth::logout();
