@@ -4,3 +4,5 @@
   
 <p align="center">Source code to Midterm Project that was created for <a href="https://www.its.ac.id/informatika/academic/study-program/bachelor-degree/curriculum-handbook-and-syllabus-for-undergraduate-study-program/">EF234501</a>.</p>
 <p align="center">All solutions were created by <a href="https://github.com/Rubinskiy">Robin</a>, and <a href="https://github.com/ahhbiasa">Abhyasa</a></p>
+
+<p align="center">Youtube video: https://youtu.be/iwsASPXw8jc</p>
